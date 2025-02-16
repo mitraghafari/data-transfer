@@ -1,0 +1,15 @@
+[Unit]
+Description=Spring Boot Rest Template
+Requires=network.target
+
+[Service]
+User=root
+Restart=on-failure
+RestartSec=5
+ExecStart=/opt/hampa/apps/template/bin/start.sh
+WorkingDirectory=/opt/hampa/apps/template/
+TimeoutStopSec=10
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

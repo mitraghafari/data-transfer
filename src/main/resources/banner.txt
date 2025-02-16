@@ -1,0 +1,10 @@
+${AnsiColor.BLUE}
+${AnsiColor.BLUE}    _____                 _       _______                              _           _
+${AnsiColor.BLUE}   |  __ \               | |     |__   __|                            | |         | |
+${AnsiColor.BLUE}   | |__) |   ___   ___  | |_       | |      ___   _ __ ___    _ __   | |   __ _  | |_    ___
+${AnsiColor.BLUE}   |  _  /   / _ \ / __| | __|      | |     / _ \ | '_ ` _ \  | '_ \  | |  / _` | | __|  / _ \
+${AnsiColor.BLUE}   | | \ \  |  __/ \__ \ | |_       | |    |  __/ | | | | | | | |_) | | | | (_| | | |_  |  __/
+${AnsiColor.BLUE}   |_|  \_\  \___| |___/  \__|      |_|     \___| |_| |_| |_| | .__/  |_|  \__,_|  \__|  \___|
+${AnsiColor.BLUE}                                                              | |
+${AnsiColor.BLUE}                                                              |_|
+${AnsiColor.BLUE}

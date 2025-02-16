@@ -1,0 +1,39 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" id="chsDataSource"
+          p:connectionTimeout="#{30 * 1000}"
+          p:driverClassName="${database.driver_class_name}"
+          p:jdbcUrl="${conn.ChsUrl}"
+          p:minimumIdle="100"
+          p:password="${conn.ChsPass}"
+          p:username="${conn.ChsUser}"
+          p:maximumPoolSize="${conn.pool.size}"
+          p:idleTimeout="${conn.expire.time}"/>
+
+    <bean class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" id="qmsDataSource"
+          p:connectionTimeout="#{30 * 1000}"
+          p:driverClassName="${database.driver_class_name}"
+          p:jdbcUrl="${conn.QmsUrl}"
+          p:minimumIdle="100"
+          p:password="${conn.QmsPass}"
+          p:username="${conn.QmsUser}"
+          p:idleTimeout="${conn.expire.time}"/>
+
+
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="chsTransactionManager"
+          p:dataSource-ref="chsDataSource"/>
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="qmsTransactionManager"
+          p:dataSource-ref="qmsDataSource"/>
+
+    <bean class="org.springframework.data.transaction.ChainedTransactionManager">
+        <constructor-arg name="transactionManagers">
+            <list>
+                <ref bean="chsTransactionManager"/>
+                <ref bean="qmsTransactionManager"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
